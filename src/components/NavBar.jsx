@@ -1,6 +1,6 @@
 import CardWidget from "./CardWidget";
 
-const NavBar = () => {
+const NavBar = ({brandname}) => {
   return (
     <>
     <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
@@ -17,7 +17,7 @@ const NavBar = () => {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <a className="navbar-brand" href="#">The Rocket Shop</a>
+          <a className="navbar-brand" href="#">{brandname}</a>
         </div>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">

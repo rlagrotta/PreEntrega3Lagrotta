@@ -9,10 +9,11 @@ import ItemListContainer from './components/ItemListContainer';
 createRoot(document.getElementById('root')).render(
     <>
     <div className="container">
-    <NavBar />
+    <NavBar brandname="The Rocket Shop"/>
     <div className="items">
-    <ItemListContainer greeting="hola" />
+    <ItemListContainer greeting="Misiles Teledirijidos" texto="niidea" />
     </div>
     </div>
     </>
 )
+
