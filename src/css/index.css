@@ -1,3 +1,7 @@
+li:hover {
+  cursor: pointer;
+}
+
 ul.dropdown-cart{
   min-width:250px;
 }
@@ -59,4 +63,13 @@ p {
 
 .items {
   margin-top: 70px;
+}
+
+.fade {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.fade.show {
+  opacity: 1;
 }
