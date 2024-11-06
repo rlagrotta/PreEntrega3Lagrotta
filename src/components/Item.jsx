@@ -23,7 +23,7 @@ const Item = ({ stock, onAdd, greeting, precio, title, imagen }) => {
   return (
     <div className="card text-center shadow-sm" style={{ width: '18rem', margin: '1rem auto' }}>
       <div className="card-header bg-primary text-white">
-        <h5>{greeting}</h5>
+        <h5>{/* {title} */}</h5>
       </div>
       <img 
         src={imagen}
@@ -44,11 +44,11 @@ const Item = ({ stock, onAdd, greeting, precio, title, imagen }) => {
           <button className="btn btn-danger mx-2" onClick={restar}>-</button>
           <span className="mx-2 fs-5">{count}</span>
           <button className="btn btn-success mx-2" onClick={sumar}>+</button>
-        </div>
-        <button className="btn btn-primary w-100" onClick={onAddHandler}>Añadir al carrito</button>
+        </div>Precio: {precio}
+        
       </div>
       <div className="card-footer text-muted">
-        Precio: {precio}
+      <button className="btn btn-primary w-100" onClick={onAddHandler}>Añadir al carrito</button>
       </div>
     </div>
   );

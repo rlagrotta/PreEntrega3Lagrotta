@@ -2,14 +2,28 @@ import React from 'react';
 
 const Hero = ({ page }) => {
   return (
+    <div style={{ position: "relative", textAlign: "center", color: "white", padding: "50px" }}>
     <div
-      className="d-flex justify-content-center align-items-center"
+      className="hero d-flex justify-content-center align-items-center"
       style={{
+        position: "absolute",
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
         backgroundColor: '#e0e0e0', // Fondo gris claro
-        height: '400px',
+        backgroundImage: `url(/jewelery2.jpeg)`,
+        backgroundRepeat: "no-repeat",
+        height: '400px', 
+        backgroundSize: "cover",
+        /* backgroundPosition: "center", */
+        filter: "blur(5px)",
+        zIndex: -1,
       }}
     >
-      <h1 className="text-center">{page}</h1>
+      <h1 style={{ marginTop: "3rem" }}className="text-center"></h1>
+    </div>
+    <h1>{page}</h1>
     </div>
   );
 };

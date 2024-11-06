@@ -73,3 +73,22 @@ p {
 .fade.show {
   opacity: 1;
 }
+.card{
+min-width: 18rem!important;
+}
+nav.navbar.navbar-expand-lg.navbar-light.bg-light.fixed-top {
+  background-color: #0d6efD !important;
+  color: white;
+  /* text-decoration-color: white; */
+}
+
+a.navbar-brand {
+  color: white;
+}
+
+a.nav-a.nav-link.active {
+  color: white;
+}
+a.nav-link {
+  color: white;
+}

@@ -37,7 +37,7 @@ const ItemListContainer = ({ page,greeting,fadeIn,setFadeIn }) => {
 
   return (
     <>
-    <div className={`d-flex fade ${fadeIn ? 'show' : ''}`} style={{ justifyContent: "space-between" }}>
+    <div className={`d-flex fade flex-wrap ${fadeIn ? 'show' : ''}`} style={{ justifyContent: "space-between", maxWidth: "1200px",margin: "0 auto" }}>
 {/*         <ItemCount greeting={greeting} texto={texto} stock={12} precio={10} onAdd={onAdd} />
         <ItemCount greeting={greeting} texto={texto} stock={12} precio={10} onAdd={onAdd} />
         <ItemCount greeting={greeting} texto={texto} stock={12} precio={10} onAdd={onAdd} />  */}
