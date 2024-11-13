@@ -5,7 +5,7 @@ import ItemList from './ItemList';
 
 const ItemListContainer = ({ page,greeting,fadeIn,setFadeIn }) => {
 
-  const [items, setItems] = useState([])
+  const [data, setData] = useState([])
 
 
 
@@ -14,21 +14,21 @@ const ItemListContainer = ({ page,greeting,fadeIn,setFadeIn }) => {
   };
 
   useEffect(() => {
-    const fetchItems = () => {
-      setTimeout(() => {
-      fetch(`https://fakestoreapi.com/products/category/${page}`)
-      .then(res => res.json())
-      .then((json) => {
-        setItems(json); // Guarda los productos en el estado
-        setFadeIn(true); // Activa el efecto de fade-in
-        console.log(json); // Imprime los productos obtenidos
-      })
-       // Guarda los productos en el estado
-      .catch(err => console.error(err)); // Manejo de errores
-  }, 2000);
-  };
 
-  fetchItems();
+    const loadData = new Promise((resolve, reject)=>{
+      //simular la carga de datos desde un archivo json
+      import("../db/db.json")
+      .then((json) =>resolve(json))
+      .catch((error)=>reject(error))
+    })
+
+    loadData
+    .then((result)=>{
+      setData(result.default);
+    })
+    .catch((error)=>{
+      console.error("Error cargando el json", error);
+    })
   
   }, [page])
 
@@ -38,10 +38,7 @@ const ItemListContainer = ({ page,greeting,fadeIn,setFadeIn }) => {
   return (
     <>
     <div className={`d-flex fade flex-wrap ${fadeIn ? 'show' : ''}`} style={{ justifyContent: "space-between", maxWidth: "1200px",margin: "0 auto" }}>
-{/*         <ItemCount greeting={greeting} texto={texto} stock={12} precio={10} onAdd={onAdd} />
-        <ItemCount greeting={greeting} texto={texto} stock={12} precio={10} onAdd={onAdd} />
-        <ItemCount greeting={greeting} texto={texto} stock={12} precio={10} onAdd={onAdd} />  */}
-        <ItemList onAdd={onAdd} items={items}/>
+        <ItemList onAdd={onAdd} data={data} page={page}/>
       </div>
     </>
 

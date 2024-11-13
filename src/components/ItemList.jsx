@@ -1,16 +1,16 @@
 import React from 'react';
 import Item from './Item';
 
-const ItemList = ({ items, onAdd }) => {
+const ItemList = ({ data, onAdd, page}) => {
   return (
     <>
-      {items.map((item) => (
+      {data.map((data) => (
         <Item
-          key={item.id}
-          title={item.title}
-          precio={item.price}
-          imagen={item.image}
-          alt={item.title}
+          key={data.id}
+          title={data.title}
+          precio={data.price} 
+          imagen={data.image}
+          alt={data.title}
           style={{ width: "100px" }}
           onAdd={onAdd}
         />

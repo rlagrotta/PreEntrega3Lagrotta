@@ -21,9 +21,9 @@ const Hero = ({ page }) => {
         zIndex: -1,
       }}
     >
-      <h1 style={{ marginTop: "3rem" }}className="text-center"></h1>
+
     </div>
-    <h1>{page}</h1>
+    <h1 style={{ marginTop: "3rem" }}>{page}</h1>
     </div>
   );
 };

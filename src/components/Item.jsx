@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const Item = ({ stock, onAdd, greeting, precio, title, imagen }) => {
+const Item = ({ stock, onAdd, precio, title, imagen }) => {
   const [count, setCount] = useState(1);
 
   const sumar = () => {

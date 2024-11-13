@@ -11,7 +11,7 @@ import Hero from './components/Hero';
 function Main() { // Cambia el nombre a Main
   // Define el estado aquí
   const [page, setPage] = useState("jewelery");
-  const [fadeIn, setFadeIn] = useState(false);
+  const [fadeIn, setFadeIn] = useState(true);
 
   
   console.log(page);
