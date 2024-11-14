@@ -5,7 +5,7 @@ const ItemDetailContainer = (pageData) => {
   return (
   
     
-    <ItemDetail pageData={pageData}/>
+    <ItemDetail pageData={pageData} id={item[pageData].id}/>
     
   )
 }

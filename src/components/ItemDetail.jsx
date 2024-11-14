@@ -1,10 +1,10 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const ItemDetail = (pageData) => {
+const ItemDetail = (pageData, title, category, price, description,id) => {
   return (
     <>
-    <div>{pageData.id}</div>
+    <div>{id}</div>
     <div className="container my-5">
       <div className="row">
         <div className="col-md-6">
@@ -16,10 +16,10 @@ const ItemDetail = (pageData) => {
           />
         </div>
         <div className="col-md-6">
-          <h2 className="text-primary mb-3">Nombre del Producto</h2>
-          <p className="text-muted">Categoría: <span className="text-dark">Categoría del Producto</span></p>
-          <h4 className="text-success">Precio: $00.00</h4>
-          <p className="my-4">Descripción detallada del producto que incluye todas sus características y beneficios. Especificaciones adicionales para informar al cliente.</p>
+          <h2 className="text-primary mb-3">{title}</h2>
+          <p className="text-muted">Categoría: <span className="text-dark">{category}</span></p>
+          <h4 className="text-success">Precio: {price}</h4>
+          <p className="my-4">{description}</p>
           <div className="d-flex align-items-center mb-3">
             <button className="btn btn-danger mx-2">-</button>
             <span className="mx-2 fs-5">1</span>
