@@ -1,18 +1,21 @@
 import React from 'react';
 import Item from './Item';
 
-const ItemList = ({ data, onAdd, page}) => {
+const ItemList = ({ data, onAdd, page }) => {
+  const filterData = data.filter((item) => item.category === page);
+
   return (
     <>
-      {data.map((data) => (
+      {filterData.map((item) => (
         <Item
-          key={data.id}
-          title={data.title}
-          precio={data.price} 
-          imagen={data.image}
-          alt={data.title}
+          key={item.id}
+          title={item.title}
+          precio={item.price}
+          imagen={item.image}
+          alt={item.title}
           style={{ width: "100px" }}
           onAdd={onAdd}
+          stock={item.stock}
         />
       ))}
     </>

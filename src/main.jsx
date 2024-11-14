@@ -11,7 +11,7 @@ import Hero from './components/Hero';
 function Main() { // Cambia el nombre a Main
   // Define el estado aquí
   const [page, setPage] = useState("jewelery");
-  const [fadeIn, setFadeIn] = useState(true);
+
 
   
   console.log(page);
@@ -21,11 +21,11 @@ function Main() { // Cambia el nombre a Main
       <div>123</div>
       <div className="container">ddd
         {/* Pasa la función setPage a NavBar */}
-        <NavBar brandname="The Rocket Shop" page={page} setPage={setPage} fadeIn={fadeIn} setFadeIn={setFadeIn}>ddd</NavBar>
+        <NavBar brandname="The Rocket Shop" page={page} setPage={setPage} >ddd</NavBar>
       </div>
       {/* Pasa el estado page a ItemList */}
       <Hero page={page}/>
-      <ItemListContainer page={page} fadeIn={fadeIn} setFadeIn={setFadeIn} />
+      <ItemListContainer page={page}  />
     </>
   );
 }

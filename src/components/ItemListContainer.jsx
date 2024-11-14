@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import ItemList from './ItemList';
 /* import ItemCount from './ItemCount'; */
 
-const ItemListContainer = ({ page,greeting,fadeIn,setFadeIn }) => {
+const ItemListContainer = ({ page,greeting }) => {
 
   const [data, setData] = useState([])
 
@@ -37,7 +37,7 @@ const ItemListContainer = ({ page,greeting,fadeIn,setFadeIn }) => {
 
   return (
     <>
-    <div className={`d-flex fade flex-wrap ${fadeIn ? 'show' : ''}`} style={{ justifyContent: "space-between", maxWidth: "1200px",margin: "0 auto" }}>
+    <div className={`d-flex flex-wrap `} style={{ justifyContent: "space-between", maxWidth: "1200px",margin: "0 auto" }}>
         <ItemList onAdd={onAdd} data={data} page={page}/>
       </div>
     </>

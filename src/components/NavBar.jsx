@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import CardWidget from "./CardWidget";
-import { Link } from "react-router-dom";
 
-const NavBar = ({ brandname, page, setPage, setFadeIn }) => {
+const NavBar = ({ brandname, page, setPage }) => {
 
 
   useEffect(() => {
@@ -33,7 +32,7 @@ const NavBar = ({ brandname, page, setPage, setFadeIn }) => {
             </button>
             <a className="navbar-brand" onClick={() => {
                     setPage("jewelery");
-                    setFadeIn(false);                    
+                                     
                     }}>
               {brandname}
             </a>
@@ -46,7 +45,7 @@ const NavBar = ({ brandname, page, setPage, setFadeIn }) => {
                   className="nav-a nav-link active"
                   onClick={() => {
                     setPage("jewelery");
-                    setFadeIn(false);                           
+                                            
                     }}>
                   Jewelery
                 </a>
@@ -55,7 +54,7 @@ const NavBar = ({ brandname, page, setPage, setFadeIn }) => {
               <li className="nav-item">
                 <a className="nav-link" onClick={() => {
                     setPage("men's clothing");
-                    setFadeIn(false);                           
+                                            
                     }}>
                   men's clothing
                 </a>
@@ -64,7 +63,7 @@ const NavBar = ({ brandname, page, setPage, setFadeIn }) => {
               <li className="nav-item">
                 <a className="nav-link" onClick={() => {
                     setPage("women's clothing");
-                    setFadeIn(false);       
+                         
                   }}>
                   women's clothing
                 </a>

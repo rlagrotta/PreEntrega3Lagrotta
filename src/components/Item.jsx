@@ -44,12 +44,12 @@ const Item = ({ stock, onAdd, precio, title, imagen }) => {
           <button className="btn btn-danger mx-2" onClick={restar}>-</button>
           <span className="mx-2 fs-5">{count}</span>
           <button className="btn btn-success mx-2" onClick={sumar}>+</button>
-        </div>Precio: {precio}
-        
+        </div>Precio: {precio}    
       </div>
       <div className="card-footer text-muted">
       <button className="btn btn-primary w-100" onClick={onAddHandler}>Añadir al carrito</button>
       </div>
+      <p>{`disponibles en stock ${stock}`}</p>
     </div>
   );
 };
