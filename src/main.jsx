@@ -12,6 +12,7 @@ import ItemDetailContainer from './components/ItemDetailContainer';
 function Main() { // Cambia el nombre a Main
   // Define el estado aquí
   const [page, setPage] = useState("jewelery");
+  const [pageData, setPageData] = useState("111")
 
 
   
@@ -19,15 +20,16 @@ function Main() { // Cambia el nombre a Main
 
   return (
     <>
-      <div>123</div>
-      <div className="container">ddd
+      <div></div>
+      
+      <div className="container"><h1>{pageData}</h1>
         {/* Pasa la función setPage a NavBar */}
-        <NavBar brandname="The Rocket Shop" page={page} setPage={setPage} >ddd</NavBar>
+        <NavBar brandname="The Rocket Shop" page={page} setPage={setPage}>ddd</NavBar>
       </div>
       {/* Pasa el estado page a ItemList */}
       <Hero page={page}/>
-      <ItemListContainer page={page}  />
-      <ItemDetailContainer/>
+      <ItemListContainer page={page} pageData={pageData} setPageData={setPageData} />
+      <ItemDetailContainer pageData={pageData}/>
     </>
   );
 }

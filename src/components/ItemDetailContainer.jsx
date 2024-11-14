@@ -1,8 +1,12 @@
 import React from 'react'
+import ItemDetail from './ItemDetail'
 
-const ItemDetailContainer = () => {
+const ItemDetailContainer = (pageData) => {
   return (
-    <div>ItemDetailContainer</div>
+  
+    
+    <ItemDetail pageData={pageData}/>
+    
   )
 }
 

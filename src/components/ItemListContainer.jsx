@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import ItemList from './ItemList';
 /* import ItemCount from './ItemCount'; */
 
-const ItemListContainer = ({ page,greeting }) => {
+const ItemListContainer = ({ page,greeting, pageData,setPageData}) => {
 
   const [data, setData] = useState([])
 
@@ -12,6 +12,7 @@ const ItemListContainer = ({ page,greeting }) => {
   const onAdd = (cantidad) => {
     alert(`Agregaste al carrito ${cantidad} de productos`);
   };
+
 
   useEffect(() => {
 
@@ -38,7 +39,8 @@ const ItemListContainer = ({ page,greeting }) => {
   return (
     <>
     <div className={`d-flex flex-wrap `} style={{ justifyContent: "space-between", maxWidth: "1200px",margin: "0 auto" }}>
-        <ItemList onAdd={onAdd} data={data} page={page}/>
+        <ItemList onAdd={onAdd} data={data} page={page} pageDataa={pageData} setPageData={setPageData} />
+        {pageData}
       </div>
     </>
 

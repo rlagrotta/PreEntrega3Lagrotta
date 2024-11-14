@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const Item = ({ stock, onAdd, precio, title, imagen }) => {
+const Item = ({ stock, onAdd, precio, title, imagen,setPageData,id}) => {
   const [count, setCount] = useState(1);
+
 
   const sumar = () => {
     if (count < stock) {
@@ -18,6 +19,11 @@ const Item = ({ stock, onAdd, precio, title, imagen }) => {
 
   const onAddHandler = () => {
     onAdd(count);
+  };
+
+  const onMoreHandler = () => {
+    console.log(id);
+    setPageData(id)
   };
 
   return (
@@ -48,6 +54,7 @@ const Item = ({ stock, onAdd, precio, title, imagen }) => {
       </div>
       <div className="card-footer text-muted">
       <button className="btn btn-primary w-100" onClick={onAddHandler}>Añadir al carrito</button>
+      <button className="btn btn-secondary w-100 mt-1" value={title} onClick={onMoreHandler}>Ver mas info</button>
       </div>
       <p>{`disponibles en stock ${stock}`}</p>
     </div>
