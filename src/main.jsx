@@ -7,6 +7,7 @@ import NavBar from './components/NavBar';
 import ItemList from './components/ItemList';
 import ItemListContainer from './components/ItemListContainer';
 import Hero from './components/Hero';
+import ItemDetailContainer from './components/ItemDetailContainer';
 
 function Main() { // Cambia el nombre a Main
   // Define el estado aquí
@@ -26,6 +27,7 @@ function Main() { // Cambia el nombre a Main
       {/* Pasa el estado page a ItemList */}
       <Hero page={page}/>
       <ItemListContainer page={page}  />
+      <ItemDetailContainer/>
     </>
   );
 }
