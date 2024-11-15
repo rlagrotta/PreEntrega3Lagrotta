@@ -39,7 +39,7 @@ const ItemListContainer = ({ page,greeting, pageData,setPageData}) => {
   return (
     <>
     <div className={`d-flex flex-wrap `} style={{ justifyContent: "space-between", maxWidth: "1200px",margin: "0 auto" }}>
-        <ItemList onAdd={onAdd} data={data} page={page} pageDataa={pageData} setPageData={setPageData} />
+        <ItemList onAdd={onAdd} data={data} page={page} pageData={pageData} setPageData={setPageData} />
         {pageData}
       </div>
     </>

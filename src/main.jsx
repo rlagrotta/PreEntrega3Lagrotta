@@ -12,7 +12,7 @@ import ItemDetailContainer from './components/ItemDetailContainer';
 function Main() { // Cambia el nombre a Main
   // Define el estado aquí
   const [page, setPage] = useState("jewelery");
-  const [pageData, setPageData] = useState("111")
+  const [pageData, setPageData] = useState("1")
 
 
   
