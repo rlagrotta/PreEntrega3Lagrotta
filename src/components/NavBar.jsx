@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
 import CardWidget from "./CardWidget";
 
-const NavBar = ({ brandname, page, setPage }) => {
+const NavBar = ({ brandname, category, setCategory }) => {
 
 
   useEffect(() => {
-    if(page){
-    console.log(page)
+    if(category){
+    console.log(category)
   } else {
-    console.log("no ha escogido una pagina")
+    console.log("no ha escogido una categoría")
   }
   
-  }, [page])
+  }, [category])
   
 
   return (
@@ -31,7 +31,7 @@ const NavBar = ({ brandname, page, setPage }) => {
               <span className="navbar-toggler-icon"></span>
             </button>
             <a className="navbar-brand" onClick={() => {
-                    setPage("jewelery");
+                    setCategory("jewelery");
                                      
                     }}>
               {brandname}
@@ -44,7 +44,7 @@ const NavBar = ({ brandname, page, setPage }) => {
                 <a
                   className="nav-a nav-link active"
                   onClick={() => {
-                    setPage("jewelery");
+                    setCategory("jewelery");
                                             
                     }}>
                   Jewelery
@@ -53,7 +53,7 @@ const NavBar = ({ brandname, page, setPage }) => {
 
               <li className="nav-item">
                 <a className="nav-link" onClick={() => {
-                    setPage("men's clothing");
+                    setCategory("men's clothing");
                                             
                     }}>
                   men's clothing
@@ -62,7 +62,7 @@ const NavBar = ({ brandname, page, setPage }) => {
 
               <li className="nav-item">
                 <a className="nav-link" onClick={() => {
-                    setPage("women's clothing");
+                    setCategory("women's clothing");
                          
                   }}>
                   women's clothing

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Hero = ({ page }) => {
+const Hero = ({ category }) => {
   return (
     <div style={{ position: "relative", textAlign: "center", color: "white", padding: "50px" }}>
     <div
@@ -23,7 +23,7 @@ const Hero = ({ page }) => {
     >
 
     </div>
-    <h1 style={{ marginTop: "3rem" }}>{page}</h1>
+    <h1 style={{ marginTop: "3rem" }}>{category}</h1>
     </div>
   );
 };

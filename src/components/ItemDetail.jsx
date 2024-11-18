@@ -1,30 +1,19 @@
-import React, { useState } from 'react';
-import ItemDetailD from './ItemDetailD';
+import React from 'react'
+import ItemCount from './ItemCount'
 
-const ItemDetail = ({data, page, pageData, setPageData, item }) => {
-  const filterData = data.filter((item) => item.id === pageData);
-
-  
-
-
+const ItemDetail = ({producto}) => {
+    const onAdd = (cantidad) =>{
+        alert(`Agregaste al carrito ${cantidad} productos`)
+    }
   return (
-    <>
-      {filterData.map((item) => (
-        <ItemDetailD
-          key={item.id}
-          pageData={pageData}
-          id={item.id}
-          title={item.title}
-          precio={item.price}
-          imagen={item.image}
-          alt={item.title}
-          style={{ width: "100px" }}
-          onAdd={onAdd}
-          stock={item.stock}
-        />
-      ))}
-    </>
-  );
-};
+    <div>
+        <h1>Detalle del producto:{producto.title}</h1>
+        <img src={producto.image} alt={producto.image}/>
+        <p>{producto.description}</p>
+        <p>${producto.price}</p>
+        <ItemCount stock={producto.stock} onAdd={onAdd}/>
+    </div>
+  )
+}
 
-export default ItemDetail;
+export default ItemDetail

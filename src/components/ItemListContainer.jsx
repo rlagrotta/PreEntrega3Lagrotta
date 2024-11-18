@@ -1,46 +1,33 @@
 import React, { useEffect, useState } from 'react';
-/* import ItemCount from './ItemCount'; */
 import ItemList from './ItemList';
-/* import ItemCount from './ItemCount'; */
+import {getProducts} from "../mock/data"
 
-const ItemListContainer = ({ page,greeting, pageData,setPageData}) => {
+const ItemListContainer = ({category,subpage,setSubpage}) => {
 
-  const [data, setData] = useState([])
-
-
+  const [products, setProducts] = useState([])
 
   const onAdd = (cantidad) => {
     alert(`Agregaste al carrito ${cantidad} de productos`);
   };
 
+  useEffect(() => {   
 
-  useEffect(() => {
-
-    const loadData = new Promise((resolve, reject)=>{
-      //simular la carga de datos desde un archivo json
-      import("../db/db.json")
-      .then((json) =>resolve(json))
-      .catch((error)=>reject(error))
-    })
-
-    loadData
+    getProducts()
     .then((result)=>{
-      setData(result.default);
+      setProducts(result.default);
+      console.log(result.default)
     })
     .catch((error)=>{
       console.error("Error cargando el json", error);
     })
   
-  }, [page])
+  }, [category])
 
-  // Promesa que si encuentra products lo desestructura para darselo a map
-  
 
   return (
     <>
     <div className={`d-flex flex-wrap `} style={{ justifyContent: "space-between", maxWidth: "1200px",margin: "0 auto" }}>
-        <ItemList onAdd={onAdd} data={data} page={page} pageData={pageData} setPageData={setPageData} />
-        {pageData}
+        <ItemList onAdd={onAdd} products={products} category={category} subpage={subpage} setSubpage={setSubpage}/>
       </div>
     </>
 

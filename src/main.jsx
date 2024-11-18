@@ -9,27 +9,27 @@ import ItemListContainer from './components/ItemListContainer';
 import Hero from './components/Hero';
 import ItemDetailContainer from './components/ItemDetailContainer';
 
-function Main() { // Cambia el nombre a Main
-  // Define el estado aquí
-  const [page, setPage] = useState("jewelery");
-  const [pageData, setPageData] = useState("1")
+function Main() {
+
+  // setea categoría inicial para productos
+  const [category, setCategory] = useState("jewelery");
+  // Setea categoría inicial para producto independiente
+  const [subpage, setSubpage] = useState("1")
 
 
   
-  console.log(page);
+  console.log(category);
 
   return (
     <>
       <div></div>
       
-      <div className="container"><h1>{pageData}</h1>
-        {/* Pasa la función setPage a NavBar */}
-        <NavBar brandname="The Rocket Shop" page={page} setPage={setPage}>ddd</NavBar>
+      <div className="container"><h1>{category}</h1>
+        <NavBar brandname="The Rocket Shop" category={category} setCategory={setCategory}>ddd</NavBar>
       </div>
-      {/* Pasa el estado page a ItemList */}
-      <Hero page={page}/>
-      <ItemListContainer page={page} pageData={pageData} setPageData={setPageData} />
-      <ItemDetailContainer pageData={pageData}/>
+      <Hero category={category}/>
+      <ItemListContainer category={category} subpage={subpage} setSubpage={setSubpage} />
+      {/* <ItemDetailContainer subpage={subpage} setSubpage={setSubpage}/> */}
     </>
   );
 }
