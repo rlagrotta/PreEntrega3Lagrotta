@@ -19,7 +19,7 @@ export const getProducts = () => {
 
 
 
-export const getProduct = () => {
+export const getProduct = (id) => {
   let error = false;
   return import("../db/db.json").then((json) => {
     return new Promise((resolve, reject) => {

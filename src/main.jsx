@@ -4,7 +4,6 @@ import './css/index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap';
 import NavBar from './components/NavBar';
-import ItemList from './components/ItemList';
 import ItemListContainer from './components/ItemListContainer';
 import Hero from './components/Hero';
 import ItemDetailContainer from './components/ItemDetailContainer';
@@ -29,7 +28,7 @@ function Main() {
       </div>
       <Hero category={category}/>
       <ItemListContainer category={category} subpage={subpage} setSubpage={setSubpage} />
-      {/* <ItemDetailContainer subpage={subpage} setSubpage={setSubpage}/> */}
+      <ItemDetailContainer subpage={subpage} setSubpage={setSubpage}/>
     </>
   );
 }

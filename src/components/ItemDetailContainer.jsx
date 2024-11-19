@@ -1,27 +1,31 @@
 import React, { useEffect, useState } from 'react'
 import ItemDetail from './ItemDetail'
+import {getProduct} from "../mock/data"
 
-const ItemDetailContainer = ({subpage, setSubpage}) => {
+const ItemDetailContainer = ({subpage:id, setSubpage}) => {
 
-  const [producto, setProducto] = useState({})
+  const [product, setProduct] = useState({})
+  console.log(id+"hola")
 
   useEffect(() => {   
 
     getProduct(id)
     .then((result)=>{
-      setProducto(result);
-      console.log(result)
+      setProduct(result);
+      console.log(result);
+      
     })
     .catch((error)=>{
       console.error("Error cargando el json", error);
     })
   
-  }, [subpage])
+  }, [id])
+
 
 
   return ( 
     
-    <ItemDetail producto={producto} />
+    <ItemDetail product={product} id={id} />
     
   )
 }
