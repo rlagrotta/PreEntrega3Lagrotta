@@ -6,7 +6,7 @@ const NavBar = ({ brandname, category, setCategory }) => {
 
   useEffect(() => {
     if(category){
-    console.log(category)
+    console.log(category+" (desdeNavbar)")
   } else {
     console.log("no ha escogido una categoría")
   }

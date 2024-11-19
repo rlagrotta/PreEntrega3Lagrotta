@@ -3,24 +3,29 @@ import ItemCount from './ItemCount';
 
 const ItemDetail = ({ product, id }) => {
   const onAdd = (cantidad) => {
-    alert(`Agregaste al carrito ${cantidad} productos`);
+    console.log(`Agregaste al carrito ${cantidad} productos`);
+    
+    // Aquí puedes actualizar el estado del carrito, etc.
   };
 
-  // Filtramos el producto por el id que coincide con el estado page
-  const filteredProduct = product.filter((item) => item.id === id)[0];
+  // Usar find para encontrar un solo producto
+  console.log(`el tipo de dato que recibe itemDetail es ${typeof product instanceof Object}`)
+  console.log(product.title+" producto")
+  console.log(`${product.title} titulo prueba itemDetail`)
+/*   const filteredProduct = product.find((item) => item.id === id); */
 
-  // Si no se encuentra el producto, podemos manejarlo con una condición
-  if (!filteredProduct) {
+  // Si no se encuentra el producto, mostramos un mensaje
+ /*  if (!filteredProduct) {
     return <p>Producto no encontrado</p>;
-  }
+  } */
 
   return (
     <div>
-      <h1>Detalle del producto: {filteredProduct.title}</h1>
-      <img src={filteredProduct.image} alt={filteredProduct.title} />
+      <h1>Detalle del producto: {product.title}</h1>
+{/*       <img src={filteredProduct.image} alt={filteredProduct.title} />
       <p>{filteredProduct.description}</p>
       <p>${filteredProduct.price}</p>
-      <ItemCount stock={filteredProduct.stock} onAdd={onAdd} />
+      <ItemCount stock={filteredProduct.stock} onAdd={onAdd} /> */}
     </div>
   );
 };

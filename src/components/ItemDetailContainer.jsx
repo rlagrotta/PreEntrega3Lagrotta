@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import ItemDetail from './ItemDetail'
-import {getProduct} from "../mock/data"
+import {getOneProduct} from "../mock/data"
 
 const ItemDetailContainer = ({subpage:id, setSubpage}) => {
 
@@ -9,10 +9,9 @@ const ItemDetailContainer = ({subpage:id, setSubpage}) => {
 
   useEffect(() => {   
 
-    getProduct(id)
-    .then((result)=>{
-      setProduct(result);
-      console.log(result);
+    getOneProduct(id)
+    .then((data)=>{
+      setProducts(data);
       
     })
     .catch((error)=>{
