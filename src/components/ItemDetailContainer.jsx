@@ -2,31 +2,41 @@ import React, { useEffect, useState } from 'react'
 import ItemDetail from './ItemDetail'
 import {getOneProduct} from "../mock/data"
 
-const ItemDetailContainer = ({subpage:id, setSubpage}) => {
+const ItemDetailContainer = (id) => {
 
-  const [product, setProduct] = useState({})
-  console.log(id+"hola")
+  const [item, setItem] = useState(id);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  useEffect(() => {   
-
+  useEffect(() => {
+    // Llama a la función para obtener el producto por ID
     getOneProduct(id)
-    .then((data)=>{
-      setProducts(data);
-      
-    })
-    .catch((error)=>{
-      console.error("Error cargando el json", error);
-    })
-  
-  }, [id])
+      .then((product) => {
+        setItem(product);
+        setLoading(false);
 
+        console.log(item);
+        console.log(typeof item); // ¿Es "object"?
+        console.log(Array.isArray(item)); // ¿Es un array?
+        console.log(item.length); // ¿Cuál es su longitud?
 
+        
+      })
+      .catch((err) => {
+        setError(err.message);
+        setLoading(false);
+      });
+  }, [id]);
 
-  return ( 
-    
-    <ItemDetail product={product} id={id} />
-    
-  )
-}
+  if (loading) {
+    return <p>Cargando producto...</p>;
+  }
 
-export default ItemDetailContainer
+  if (error) {
+    return <p>Error: {error}</p>;
+  }
+
+  return <ItemDetail item={item}  />;
+};
+
+export default ItemDetailContainer;

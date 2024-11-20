@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Item from './Item';
 
-const ItemList = ({ onAdd, products, category, setSubpage }) => {
+const ItemList = ({ onAdd, products, category}) => {
   const filterData = products.filter((item) => item.category === category);
 
   
@@ -20,7 +20,6 @@ const ItemList = ({ onAdd, products, category, setSubpage }) => {
           style={{ width: "100px" }}
           onAdd={onAdd}
           stock={item.stock}
-          setSubpage={setSubpage}
         />
       ))}
     </>

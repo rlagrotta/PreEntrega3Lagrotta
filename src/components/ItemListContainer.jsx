@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ItemList from './ItemList';
 import {getProducts} from "../mock/data"
 
-const ItemListContainer = ({category,subpage,setSubpage}) => {
+const ItemListContainer = ({category}) => {
 
   const [products, setProducts] = useState([])
 
@@ -27,7 +27,7 @@ const ItemListContainer = ({category,subpage,setSubpage}) => {
   return (
     <>
     <div className={`d-flex flex-wrap `} style={{ justifyContent: "space-between", maxWidth: "1200px",margin: "0 auto" }}>
-        <ItemList onAdd={onAdd} products={products} category={category} subpage={subpage} setSubpage={setSubpage}/>
+        <ItemList onAdd={onAdd} products={products} category={category} />
       </div>
     </>
 

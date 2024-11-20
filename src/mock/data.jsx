@@ -38,29 +38,19 @@ export const getProducts = () => {
 
 //opcion 2
 
+// mock/data.jsx
+import database from '../db/db.json'; // Importa la base de datos
+
+// Función simulada para obtener un producto por ID con un retraso de 3 segundos
 export const getOneProduct = (id) => {
-  let error = false;
-  let datas = []  
-  return import("../db/db.json")
-  .then((json)  => {
-      return new Promise((resolve, reject) => {
-        setTimeout(() => {
-          if (error) {
-            reject("Hubo un error, intenta más tarde");
-          } else {
-            resolve(datas)
-            const data = datas.find((item) => item.id === id);
-            
-            if (data) {
-              resolve(data);
-            } else {
-              reject("Producto no encontrado");
-            }
-          }
-        }, 3000);
-      });
-    })
-    .catch(() => {
-      throw new Error("Error al importar el archivo JSON");
-    });
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const product = database.find((product) => product.id === 1);
+      if (product) {
+        resolve(product);
+      } else {
+        reject(new Error("Producto no encontrado."));
+      }
+    }, 3000); // Retraso de 3 segundos
+  });
 };

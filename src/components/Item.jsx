@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const Item = ({ stock, onAdd, precio, title, imagen,setSubpage,id}) => {
+const Item = ({ stock, onAdd, precio, title, imagen}) => {
   const [count, setCount] = useState(1);
 
 
@@ -23,7 +23,6 @@ const Item = ({ stock, onAdd, precio, title, imagen,setSubpage,id}) => {
 
   const onMoreHandler = () => {
     console.log(id);
-    setSubpage(id)
   };
 
   return (
