@@ -8,7 +8,7 @@ const ItemList = ({ onAdd, products, category}) => {
 
 
   return (
-    <>
+    <>    
       {filterData.map((item) => (
         <Item
           key={item.id}
@@ -22,6 +22,7 @@ const ItemList = ({ onAdd, products, category}) => {
           stock={item.stock}
         />
       ))}
+      
     </>
   );
 };

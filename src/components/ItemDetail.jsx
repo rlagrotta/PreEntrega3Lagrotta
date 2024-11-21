@@ -1,5 +1,6 @@
 // ItemDetail.jsx
 import React from 'react';
+import ItemCount from './ItemCount';
 
 const ItemDetail = ({ item }) => {
   return (
@@ -35,6 +36,7 @@ const ItemDetail = ({ item }) => {
                     Agregar al carrito
                   </button>
                 </div>
+      <ItemCount stock={item.stock}/>
               </div>
             </div>
           </div>
