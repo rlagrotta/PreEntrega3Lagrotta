@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useNavigate } from "react-router";
 
-const Item = ({ stock, onAdd, precio, title, imagen}) => {
+const Item = ({ stock, onAdd, precio, title, imagen, id}) => {
   const [count, setCount] = useState(1);
+
+  const navigate = useNavigate()
 
 
   const sumar = () => {
@@ -22,8 +25,9 @@ const Item = ({ stock, onAdd, precio, title, imagen}) => {
   };
 
   const onMoreHandler = () => {
-    console.log(id);
+    
   };
+
 
   return (
     <div className="card text-center shadow-sm" style={{ width: '18rem', margin: '1rem auto' }}>
@@ -46,16 +50,16 @@ const Item = ({ stock, onAdd, precio, title, imagen}) => {
           {title}
         </p>
         <div className="d-flex justify-content-center align-items-center mb-3">
-          <button className="btn btn-danger mx-2" onClick={restar}>-</button>
-          <span className="mx-2 fs-5">{count}</span>
-          <button className="btn btn-success mx-2" onClick={sumar}>+</button>
         </div>Precio: {precio}    
       </div>
       <div className="card-footer text-muted">
-      <button className="btn btn-primary w-100" onClick={onAddHandler}>Añadir al carrito</button>
-      <button className="btn btn-secondary w-100 mt-1" value={title} onClick={onMoreHandler}>Ver mas info</button>
+      <button className="btn btn-secondary w-100 mt-1" value={title} onClick={()=>
+      {
+        navigate(`/item/${id}`)
+      }
+      }>Ver mas info</button>
       </div>
-      <p>{`disponibles en stock ${stock}`}</p>
+
     </div>
   );
 };

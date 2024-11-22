@@ -1,21 +1,30 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import CardWidget from "./CardWidget";
 
 const NavBar = ({ brandname, category, setCategory }) => {
-
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const categoryReplacement = "Jewelery";
 
   useEffect(() => {
-    if(category){
-    console.log(category+" (desdeNavbar)")
-  } else {
-    console.log("no ha escogido una categoría")
-  }
-  
-  }, [category])
-  
+    if (!id) {
+      setCategory(categoryReplacement);
+    } else {
+      setCategory(id);
+    }
+  }, [id, setCategory]);
+
+  const handleCategoryChange = (categoryName) => {
+    navigate(`/category/${categoryName.toLowerCase().replace(/\s+/g, '-')}`);
+    setCategory(categoryName);
+  };
 
   return (
     <>
+      <div className="container">
+        <h1>{category || categoryReplacement}</h1>
+      </div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div className="container-fluid">
           <div className="navbar-header">
@@ -30,46 +39,29 @@ const NavBar = ({ brandname, category, setCategory }) => {
             >
               <span className="navbar-toggler-icon"></span>
             </button>
-            <a className="navbar-brand" onClick={() => {
-                    setCategory("jewelery");
-                                     
-                    }}>
+            <a className="navbar-brand" onClick={() => handleCategoryChange("jewelery")}>
               {brandname}
             </a>
           </div>
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
-
               <li className="nav-item">
-                <a
-                  className="nav-a nav-link active"
-                  onClick={() => {
-                    setCategory("jewelery");
-                                            
-                    }}>
+                <a className="nav-link active" onClick={() => handleCategoryChange("jewelery")}>
                   Jewelery
                 </a>
               </li>
-
               <li className="nav-item">
-                <a className="nav-link" onClick={() => {
-                    setCategory("men's clothing");
-                                            
-                    }}>
-                  men's clothing
+                <a className="nav-link" onClick={() => handleCategoryChange("men's clothing")}>
+                  Men's Clothing
                 </a>
               </li>
-
               <li className="nav-item">
-                <a className="nav-link" onClick={() => {
-                    setCategory("women's clothing");
-                         
-                  }}>
-                  women's clothing
+                <a className="nav-link" onClick={() => handleCategoryChange("women's clothing")}>
+                  Women's Clothing
                 </a>
               </li>
             </ul>
-             <CardWidget /> 
+            <CardWidget />
           </div>
         </div>
       </nav>

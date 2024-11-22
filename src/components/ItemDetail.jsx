@@ -2,7 +2,7 @@
 import React from 'react';
 import ItemCount from './ItemCount';
 
-const ItemDetail = ({ item }) => {
+const ItemDetail = ({ item,onAdd}) => {
   return (
     <div className="container mt-4">
       <div className="row justify-content-center">
@@ -32,11 +32,8 @@ const ItemDetail = ({ item }) => {
                   <p className="card-text">
                     <strong>Stock disponible:</strong> {item.stock}
                   </p>
-                  <button className="btn btn-primary mt-3">
-                    Agregar al carrito
-                  </button>
                 </div>
-      <ItemCount stock={item.stock}/>
+      <ItemCount onAdd={onAdd} stock={item.stock} id={item.id}/>
               </div>
             </div>
           </div>

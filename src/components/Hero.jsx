@@ -1,12 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useParams } from "react-router-dom";
 
-const Hero = ({ category }) => {
+const Hero = ({ category,setCategory }) => {
+  const {id} = useParams();
+
+  useEffect(()=>{
+    if(id){
+      setCategory(id)
+    }
+  },[id, setCategory])
+
+
   return (
     <div style={{ position: "relative", textAlign: "center", color: "white", padding: "50px" }}>
     <div
       className="hero d-flex justify-content-center align-items-center"
       style={{
-        position: "absolute",
+        position: "relative",
         top: 0,
         left: 0,
         right: 0,
@@ -23,7 +33,7 @@ const Hero = ({ category }) => {
     >
 
     </div>
-    <h1 style={{ marginTop: "3rem" }}>{category}</h1>
+    {/* <h1 style={{ marginTop: "3rem" }}>{category}</h1> */}
     </div>
   );
 };
