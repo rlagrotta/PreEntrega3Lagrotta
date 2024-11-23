@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Item from './Item';
 
 const ItemList = ({ onAdd, products, category}) => {
-  const filterData = products.filter((item) => item.category === category);
-
-  
-
+  // Condicional para manejar el filtro
+  const filterData = category 
+    ? products.filter((item) => item.category === category) // Filtra si hay categoría
+    : products; // Muestra todo si no hay categoría
 
   return (
     <>    
@@ -22,7 +22,6 @@ const ItemList = ({ onAdd, products, category}) => {
           stock={item.stock}
         />
       ))}
-      
     </>
   );
 };

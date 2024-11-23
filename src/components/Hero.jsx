@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useParams } from "react-router-dom";
 
-const Hero = ({ category,setCategory }) => {
+const Hero = ({ setCategory }) => {
   const {id} = useParams();
 
   useEffect(()=>{
@@ -21,19 +21,17 @@ const Hero = ({ category,setCategory }) => {
         left: 0,
         right: 0,
         bottom: 0,
-        backgroundColor: '#e0e0e0', // Fondo gris claro
+        backgroundColor: '#e0e0e0', 
         backgroundImage: `url(/jewelery2.jpeg)`,
         backgroundRepeat: "no-repeat",
         height: '400px', 
         backgroundSize: "cover",
-        /* backgroundPosition: "center", */
         filter: "blur(5px)",
         zIndex: -1,
       }}
     >
 
     </div>
-    {/* <h1 style={{ marginTop: "3rem" }}>{category}</h1> */}
     </div>
   );
 };

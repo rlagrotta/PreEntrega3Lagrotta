@@ -5,19 +5,29 @@ import CardWidget from "./CardWidget";
 const NavBar = ({ brandname, category, setCategory }) => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const categoryReplacement = "Jewelery";
+  const categoryReplacement = "Todos";
+
+  const handleRegresar = () => {
+    setCategory(null); // Limpia la categoría antes de navegar
+    navigate('/'); // Redirige a la página principal
+  };
 
   useEffect(() => {
     if (!id) {
-      setCategory(categoryReplacement);
+      setCategory(null); // Limpia la categoría si no hay id
     } else {
       setCategory(id);
     }
   }, [id, setCategory]);
 
   const handleCategoryChange = (categoryName) => {
-    navigate(`/category/${categoryName.toLowerCase().replace(/\s+/g, '-')}`);
-    setCategory(categoryName);
+    if (categoryName) {
+      navigate(`/category/${categoryName.toLowerCase().replace(/\s+/g, '-')}`);
+      setCategory(categoryName);
+    } else {
+      navigate('/');
+      setCategory(null); // Limpia la categoría si no hay una seleccionada
+    }
   };
 
   return (
@@ -39,14 +49,14 @@ const NavBar = ({ brandname, category, setCategory }) => {
             >
               <span className="navbar-toggler-icon"></span>
             </button>
-            <a className="navbar-brand" onClick={() => handleCategoryChange("jewelery")}>
+            <a className="navbar-brand" onClick={handleRegresar}>
               {brandname}
             </a>
           </div>
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <a className="nav-link active" onClick={() => handleCategoryChange("jewelery")}>
+                <a className="nav-link" onClick={() => handleCategoryChange("jewelery")}>
                   Jewelery
                 </a>
               </li>

@@ -84,6 +84,7 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light.fixed-top {
 
 a.navbar-brand {
   color: white;
+  cursor: pointer;
 }
 
 a.nav-a.nav-link.active {
@@ -91,4 +92,8 @@ a.nav-a.nav-link.active {
 }
 a.nav-link {
   color: white;
+}
+
+h1 {
+  text-align: center;
 }

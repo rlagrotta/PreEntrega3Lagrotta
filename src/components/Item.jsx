@@ -56,6 +56,7 @@ const Item = ({ stock, onAdd, precio, title, imagen, id}) => {
       <button className="btn btn-secondary w-100 mt-1" value={title} onClick={()=>
       {
         navigate(`/item/${id}`)
+
       }
       }>Ver mas info</button>
       </div>

@@ -7,6 +7,8 @@ const ItemListContainer = ({ category, setCategory }) => {
   const [products, setProducts] = useState([]);
   const { categoryParam } = useParams();
 
+
+
   const onAdd = (cantidad) => {
     alert(`Agregaste al carrito ${cantidad} de productos`);
   };
@@ -16,7 +18,7 @@ const ItemListContainer = ({ category, setCategory }) => {
     if (categoryParam) {
       setCategory(categoryParam);
     } else {
-      setCategory("jewelery");
+      setCategory(null);
     }
   }, [categoryParam]);
 

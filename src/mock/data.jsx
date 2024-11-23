@@ -45,12 +45,13 @@ import database from '../db/db.json'; // Importa la base de datos
 export const getOneProduct = (id) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      const product = database.find((product) => product.id === 1);
+
+      const product = database.find((product) => product.id === parseInt(id));
       if (product) {
-        resolve(product);
+        resolve(product); // Resuelve con el producto encontrado
       } else {
-        reject(new Error("Producto no encontrado."));
+        reject(new Error("Producto no encontrado.")); // Rechaza si no se encuentra el producto
       }
-    }, 3000); // Retraso de 3 segundos
+    }, 3000); 
   });
 };
