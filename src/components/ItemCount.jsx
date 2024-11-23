@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const ItemCount = ({ stock, onAdd, greeting,precio }) => {
+const ItemCount = ({ stock, onAdd, id }) => {
   const [count, setCount] = useState(1);
+  const navigate = useNavigate();
+
+  const handleRegresar = () => navigate('/');
 
   const sumar = () => {
     if (count < stock) {
@@ -20,32 +24,33 @@ const ItemCount = ({ stock, onAdd, greeting,precio }) => {
     onAdd(count);
   };
 
+  const onMoreHandler = () => {
+    console.log(id);
+  };
+
   return (
-    <div className="card text-center shadow-sm" style={{ width: '18rem', margin: '1rem auto' }}>
-      <div className="card-header bg-primary text-white">
-        <h5>{greeting}</h5>
+    <>
+      <button disabled={count <= 1} className="btn btn-danger mx-2" onClick={restar}>
+        -
+      </button>
+      <span className="mx-2 fs-5">{count}</span>
+      <button
+        disabled={count >= stock}
+        className="btn btn-success mx-2"
+        onClick={sumar}
+      >
+        +
+      </button>
+      <p>{`Disponibles en stock: ${stock}`}</p>
+      <div>
+        <button onClick={onAddHandler} className="btn btn-primary mt-3">
+          Agregar al carrito
+        </button>
+        <button className="btn btn-danger mx-2 mt-3" onClick={handleRegresar}>
+          Regresar
+        </button>
       </div>
-      <img 
-        src="https://via.placeholder.com/150" 
-        className="card-img-top" 
-        alt="Producto" 
-        style={{ padding: '1rem', objectFit: 'cover', borderRadius: '8px' }}
-      />
-      <div className="card-body">
-        <p className="card-text">
-          ¡Añade este producto a tu carrito! Solo quedan <strong>{stock}</strong> disponibles.
-        </p>
-        <div className="d-flex justify-content-center align-items-center mb-3">
-          <button className="btn btn-danger mx-2" onClick={restar}>-</button>
-          <span className="mx-2 fs-5">{count}</span>
-          <button className="btn btn-success mx-2" onClick={sumar}>+</button>
-        </div>
-        <button className="btn btn-primary w-100" onClick={onAddHandler}>Añadir al carrito</button>
-      </div>
-      <div className="card-footer text-muted">
-        Precio: {precio}
-      </div>
-    </div>
+    </>
   );
 };
 
