@@ -1,6 +1,7 @@
 import React from 'react'
 
-const CardWidget = () => {
+const CartWidget = () => {
+  console.log(cart)
   return (<>
   <div className="shopcart-container">
     <p className={{"margin":"auto"}}>100</p>
@@ -10,4 +11,4 @@ const CardWidget = () => {
   )
 }
 
-export default CardWidget
+export default CartWidget

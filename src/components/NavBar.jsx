@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import CardWidget from "./CardWidget";
+import CartWidget from "./CartWidget";
 
 const NavBar = ({ brandname, category, setCategory }) => {
   const { id } = useParams();
@@ -71,7 +71,7 @@ const NavBar = ({ brandname, category, setCategory }) => {
                 </a>
               </li>
             </ul>
-            <CardWidget />
+            <CartWidget />
           </div>
         </div>
       </nav>
