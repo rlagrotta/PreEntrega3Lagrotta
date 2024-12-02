@@ -16,7 +16,7 @@ const CartList = () => {
                 padding:"2rem",
             }}>
                 <button className="btn btn-danger" onClick={clear}>Borrar Carrito</button>
-                <Link className="btn btn-success" to="/checkout">Terminar Compra</Link>
+                <Link className="btn btn-success" to="/checkout">Terminar Compra </Link>
             </div>
         </div>
     )
