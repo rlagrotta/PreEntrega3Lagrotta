@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import ItemDetail from './ItemDetail';
 import { getOneProduct } from "../mock/data";
 import { useParams } from "react-router-dom";
+import { collection, doc, getDoc } from 'firebase/firestore';
+import { db } from '../services/firebase';
 
 const ItemDetailContainer = () => {
   const { id } = useParams();
@@ -14,7 +16,24 @@ const ItemDetailContainer = () => {
     alert(`Agregaste al carrito ${cantidad} de productos`);
   };
 
+  //FIREBASE
+
   useEffect(() => {
+    setLoading(true)
+    //collection y project firebase
+    const collectionProd = collection(db,"productos")
+    //creamos una referencia
+    const docRef = doc(collectionProd,id)
+    //traer documento
+    getDoc(docRef)
+    .then((res)=>setItem({id:res.id, ...res.data()}))
+    .catch((error)=>console.log(error))
+    .finally(()=>setLoading(false))
+
+  }, [])
+  
+
+/*   useEffect(() => {
     // Llama a la función para obtener el producto por ID
     setLoading(true); // Reinicia el estado de carga para cada cambio de ID
     getOneProduct(id)
@@ -28,7 +47,7 @@ const ItemDetailContainer = () => {
         setLoading(false);
       });
   }, [id]); // Se ejecutará cada vez que cambie el ID
-
+ */
   if (loading) {
     return <p style={{ textAlign: "center" }}>Cargando producto...</p>;
   }

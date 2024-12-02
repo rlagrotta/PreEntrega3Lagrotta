@@ -12,7 +12,7 @@ import Hero from './components/Hero';
 import './css/index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap';
-import { CartProvider } from './context/CartContext';
+/* import { CartProvider } from './context/CartContext'; */
 
 function Main() {
   // Define el estado de `category`
@@ -20,7 +20,7 @@ function Main() {
 
   return (
     <>
-    <CartProvider>
+{/*     <CartProvider> */}
       <BrowserRouter>
         <div className="container">
           <h1>{category}</h1>
@@ -43,7 +43,7 @@ function Main() {
           <Route path="/item/:id" element={<ItemDetailContainer />} />
         </Routes>
       </BrowserRouter>
-      </CartProvider>
+{/*       </CartProvider> */}
     </>
   );
 }

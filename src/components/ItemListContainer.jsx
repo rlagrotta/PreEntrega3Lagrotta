@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import ItemList from './ItemList';
-import { getProducts } from "../mock/data";
 import { useParams } from "react-router-dom";
+import { collection, getDocs, query, where } from 'firebase/firestore'; // Asegúrate de incluir where
+import { db } from '../services/firebase';
 
 const ItemListContainer = ({ category, setCategory }) => {    
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(false);
   const { categoryParam } = useParams();
-
-
 
   const onAdd = (cantidad) => {
     alert(`Agregaste al carrito ${cantidad} de productos`);
@@ -22,16 +22,25 @@ const ItemListContainer = ({ category, setCategory }) => {
     }
   }, [categoryParam]);
 
-  // Carga los productos
-  useEffect(() => {   
-    getProducts()
-      .then((result) => {
-        setProducts(result.default); // Ajusta si el resultado tiene una estructura diferente
-        console.log(result.default);
+  // Firebase
+  useEffect(() => {
+    setLoading(true);
+    // Conectamos con nuestra colección
+    const productsCollection = category
+      ? query(collection(db, "productos"), where("category", "==", category)) 
+      : collection(db, "productos");
+
+    // Pedir documentos
+    getDocs(productsCollection)
+      .then((res) => {
+        const list = res.docs.map((product) => ({
+          id: product.id,
+          ...product.data(),
+        }));
+        setProducts(list);
       })
-      .catch((error) => {
-        console.error("Error cargando el json", error);
-      });
+      .catch((error) => console.log(error))
+      .finally(() => setLoading(false));
   }, [category]);
 
   return (

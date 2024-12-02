@@ -1,7 +1,7 @@
 import React from 'react'
 
 const CartWidget = () => {
-  console.log(cart)
+ /*  console.log(cart) */
   return (<>
   <div className="shopcart-container">
     <p className={{"margin":"auto"}}>100</p>
