@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { serverTimestamp,addDoc } from 'firebase/database'
+import { Link } from 'react-router-dom'
 
 const Checkout = () => {
     const [user,setUser]= useState({})
     cont [validate, setValidate] =useState("")
-    const [orderId,setOrderId]
-    const {cart} = useContext(CartContext)
+    const [orderId,setOrderId] = useState("")
+    const {cart,cartTotal,clear} = useContext(CartContext)
     const userData = (e)=>{
         setUser({
             ...user,
@@ -41,12 +42,25 @@ const Checkout = () => {
                         updateDoc(docRef, {stock: dbDoc.data().stock - item.cantidad})
                     })
                 })
+                setOrderId(res.id)
+                clear()
             })
+            .catch((error)=>console.log(error))
         }
 
     }
   return (
     <div>
+
+       {orderId !== "" ? 
+       <div>
+        <h4>Generaste bien tu orden!</h4>
+        <h5>El id es {orderId}</h5>
+        <Link className='btn btn-success' to="/">Volver a home</Link>
+        
+       </div>
+       :
+       <div>
     <h4>Completa con tus datos</h4>
     <form className='d-flex flex-column align-items-center' onSubmit={finalizarCompra}> 
         <input type='text' name="name" placeholder='Ingrese su nombre' onChange={userData}/>
@@ -59,8 +73,11 @@ const Checkout = () => {
         <button className='btn btn-success'>Enviar</button>
 
     </form>
+    </div>}
+    
     </div>
+    
   )
-}
+
 
 export default Checkout
