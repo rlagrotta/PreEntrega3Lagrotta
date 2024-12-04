@@ -1,19 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import ItemDetail from './ItemDetail';
 import { getOneProduct } from "../mock/data";
 import { useParams } from "react-router-dom";
 import { collection, doc, getDoc } from 'firebase/firestore';
 import { db } from '../services/firebase';
+import { CartContext } from '../context/CartContext';
 
 const ItemDetailContainer = () => {
+  const {addItem}=useContext(CartContext)
   const { id } = useParams();
-
-  const [item, setItem] = useState(null); // Inicializado como null
+  const [product, setProduct] = useState(null); // Inicializado como null
+  const [purchase, setPurchase] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   const onAdd = (cantidad) => {
-    alert(`Agregaste al carrito ${cantidad} de productos`);
+    setPurchase(true)
+    addItem(product,cantidad)
   };
 
   //FIREBASE
@@ -26,7 +29,7 @@ const ItemDetailContainer = () => {
     const docRef = doc(collectionProd,id)
     //traer documento
     getDoc(docRef)
-    .then((res)=>setItem({id:res.id, ...res.data()}))
+    .then((res)=>setProduct({id:res.id, ...res.data()}))
     .catch((error)=>console.log(error))
     .finally(()=>setLoading(false))
 
@@ -56,8 +59,8 @@ const ItemDetailContainer = () => {
     return <p>Error: {error}</p>;
   }
 
-  return item ? (
-    <ItemDetail onAdd={onAdd} item={item} />
+  return product ? (
+    <ItemDetail onAdd={onAdd} product={product} />
   ) : (
     <p>No se encontró el producto.</p>
   );
