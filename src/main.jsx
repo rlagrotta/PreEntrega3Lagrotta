@@ -8,7 +8,6 @@ import {
 import NavBar from './components/NavBar';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import ItemListContainer from './components/ItemListContainer';
-import Hero from './components/Hero';
 import './css/index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { CartProvider } from './context/CartContext';

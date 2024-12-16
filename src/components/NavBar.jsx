@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import CartWidget from "./CartWidget";
 
@@ -12,7 +12,7 @@ const NavBar = ({ brandname, category, setCategory }) => {
     navigate('/'); // Redirige a la página principal
   };
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (!id) {
       setCategory(null); // Limpia la categoría si no hay id
     } else {
@@ -31,8 +31,7 @@ const NavBar = ({ brandname, category, setCategory }) => {
   };
 
   return (
-    <>        <div className="container">
-      <h1>{category}</h1>
+    <div className="container">
       <div className="container">
         <h1>{category || categoryReplacement}</h1>
       </div>
@@ -75,8 +74,8 @@ const NavBar = ({ brandname, category, setCategory }) => {
             <CartWidget />
           </div>
         </div>
-      </nav>        </div>
-    </>
+      </nav>
+    </div>
   );
 };
 

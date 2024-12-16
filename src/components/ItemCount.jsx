@@ -30,6 +30,11 @@ const ItemCount = ({ stock, onAdd, id }) => {
     navigate('/checkout'); // Navegar a la página de checkout
   };
 
+  const addMoreItems = () => {
+    setAddedToCart(false); // Resetear para permitir agregar más ítems
+    setCount(1); // Reiniciar el contador
+  };
+
   return (
     <>
       <div>
@@ -53,9 +58,14 @@ const ItemCount = ({ stock, onAdd, id }) => {
             Agregar al carrito
           </button>
         ) : (
-          <button onClick={goToCheckout} className="btn btn-success mt-3">
-            Ir al checkout
-          </button>
+          <>
+            <button onClick={goToCheckout} className="btn btn-success mt-3">
+              Ir al checkout
+            </button>
+            <button onClick={addMoreItems} className="btn btn-warning mx-2 mt-3">
+              Escoger más ítems
+            </button>
+          </>
         )}
         <button className="btn btn-danger mx-2 mt-3" onClick={handleRegresar}>
           Regresar
