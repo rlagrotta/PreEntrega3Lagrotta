@@ -15,6 +15,7 @@ import { CartProvider } from './context/CartContext';
 import CartContainer from './components/CartContainer';
 import Checkout from './components/Checkout';
 import CheckoutUseForm from './components/CheckoutUseForm';
+import Footer from './components/Footer';
 
 function Main() {
   // Define el estado de `category`
@@ -31,6 +32,7 @@ function Main() {
           <Route path="/cart" element={<CartContainer />} />
           <Route path="/checkout" element={<CheckoutUseForm/>} />
         </Routes>
+        <Footer/>
       </BrowserRouter>
     </CartProvider>
   );

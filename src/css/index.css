@@ -189,3 +189,7 @@ h1 {
   font-weight: bold;
   color: #155724;
 }
+
+footer.bg-primary.text-white.pt-4 {
+  margin-top: 2rem;
+}
