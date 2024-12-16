@@ -32,7 +32,7 @@ const NavBar = ({ brandname, category, setCategory }) => {
 
   return (
     <>        <div className="container">
-          <h1>{category}</h1>
+      <h1>{category}</h1>
       <div className="container">
         <h1>{category || categoryReplacement}</h1>
       </div>

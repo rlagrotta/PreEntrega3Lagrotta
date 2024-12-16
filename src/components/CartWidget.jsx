@@ -1,13 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { CartContext } from '../context/CartContext'
+import { Link } from 'react-router-dom'
 
 const CartWidget = () => {
- /*  console.log(cart) */
+  const { cartQty } = useContext(CartContext)
   return (<>
-  <div className="shopcart-container">
-    <p className={{"margin":"auto"}}>100</p>
-    <img src="/shop-cart.png" alt="Logo" style={{ "height":"40px" }} />
+    <div className="shopcart-container">
+      {cartQty() > 0 &&
+        <p className={{ "margin": "auto" }}>{cartQty()}</p>}
+      <Link to={"/cart"}><img src="/shop-cart.png" alt="Logo" style={{ "height": "40px" }} /></Link>
     </div>
-    </>
+  </>
   )
 }
 

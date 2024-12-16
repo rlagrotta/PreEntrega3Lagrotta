@@ -7,7 +7,7 @@ import { db } from '../services/firebase';
 import { CartContext } from '../context/CartContext';
 
 const ItemDetailContainer = () => {
-  const {addItem}=useContext(CartContext)
+  const {addItem,itemQuantity}=useContext(CartContext)
   const { id } = useParams();
   const [product, setProduct] = useState(null); // Inicializado como null
   const [purchase, setPurchase] = useState(false);
@@ -60,7 +60,7 @@ const ItemDetailContainer = () => {
   }
 
   return product ? (
-    <ItemDetail onAdd={onAdd} product={product} />
+    <ItemDetail onAdd={onAdd} product={product} itemQuantity={itemQuantity}/>
   ) : (
     <p>No se encontró el producto.</p>
   );

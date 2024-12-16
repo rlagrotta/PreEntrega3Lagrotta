@@ -30,6 +30,9 @@ const ItemCount = ({ stock, onAdd, id }) => {
 
   return (
     <>
+    <div>
+      {stock===0 && <p>Lo sentimos ya no hay mas stock disponible</p>}
+    </div>
       <button disabled={count <= 1} className="btn btn-danger mx-2" onClick={restar}>
         -
       </button>

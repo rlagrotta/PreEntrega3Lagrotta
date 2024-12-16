@@ -13,6 +13,7 @@ import './css/index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { CartProvider } from './context/CartContext';
 import CartContainer from './components/CartContainer';
+import Checkout from './components/Checkout';
 
 function Main() {
   // Define el estado de `category`
@@ -27,6 +28,7 @@ function Main() {
           <Route path="/category/:id" element={<ItemListContainer category={category} setCategory={setCategory} />} />
           <Route path="/item/:id" element={<ItemDetailContainer />} />
           <Route path="/cart" element={<CartContainer />} />
+          <Route path="/checkout" element={<Checkout/>} />
         </Routes>
       </BrowserRouter>
     </CartProvider>

@@ -1,10 +1,13 @@
 // ItemDetail.jsx
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ItemCount from './ItemCount';
 import { Link } from 'react-router-dom';
 
-const ItemDetail = ({ product, onAdd,purchase }) => {
-  
+const ItemDetail = ({ product, onAdd, purchase, itemQuantity }) => {
+
+  const stockActualizado = product.stock - (itemQuantity ? itemQuantity(product.id) : 0);
+
+
 
   return (
     <div className="container mt-4">
@@ -14,9 +17,9 @@ const ItemDetail = ({ product, onAdd,purchase }) => {
             <div className="row g-0">
               {/* Imagen del producto */}
               <div className="col-md-4 text-center my-auto">
-                <img 
-                  src={product.image} 
-                  alt={product.title} 
+                <img
+                  src={product.image}
+                  alt={product.title}
                   className="img-fluid rounded-start"
                   style={{ maxHeight: '300px', objectFit: 'contain' }}
                 />
@@ -37,10 +40,11 @@ const ItemDetail = ({ product, onAdd,purchase }) => {
                   </p>
                 </div>
                 {purchase ? (
-                  <Link className="btn btn-dark">Ir al carrito</Link>
+                  <Link to="/cart" className="btn btn-dark">Ir al carrito</Link>
                 ) : (
-                  <ItemCount onAdd={onAdd} stock={product.stock} initial={1} id={product.id} to="/cart" />
+                  <ItemCount onAdd={onAdd} stock={stockActualizado} initial={1} id={product.id} />
                 )}
+
               </div>
             </div>
           </div>
