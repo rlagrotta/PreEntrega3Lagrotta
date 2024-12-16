@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const ItemCount = ({ stock, onAdd, id }) => {
   const [count, setCount] = useState(1);
+  const [addedToCart, setAddedToCart] = useState(false); // Estado para manejar si el ítem fue agregado
   const navigate = useNavigate();
 
   const handleRegresar = () => navigate('/');
@@ -22,17 +23,18 @@ const ItemCount = ({ stock, onAdd, id }) => {
 
   const onAddHandler = () => {
     onAdd(count);
+    setAddedToCart(true); // Marcar como agregado al carrito
   };
 
-  const onMoreHandler = () => {
-    console.log(id);
+  const goToCheckout = () => {
+    navigate('/checkout'); // Navegar a la página de checkout
   };
 
   return (
     <>
-    <div>
-      {stock===0 && <p>Lo sentimos ya no hay mas stock disponible</p>}
-    </div>
+      <div>
+        {stock === 0 && <p>Lo sentimos, ya no hay más stock disponible</p>}
+      </div>
       <button disabled={count <= 1} className="btn btn-danger mx-2" onClick={restar}>
         -
       </button>
@@ -46,9 +48,15 @@ const ItemCount = ({ stock, onAdd, id }) => {
       </button>
       <p>{`Disponibles en stock: ${stock}`}</p>
       <div>
-        <button onClick={onAddHandler} className="btn btn-primary mt-3">
-          Agregar al carrito
-        </button>
+        {!addedToCart ? ( // Mostrar "Agregar al carrito" solo si no está agregado
+          <button onClick={onAddHandler} className="btn btn-primary mt-3">
+            Agregar al carrito
+          </button>
+        ) : (
+          <button onClick={goToCheckout} className="btn btn-success mt-3">
+            Ir al checkout
+          </button>
+        )}
         <button className="btn btn-danger mx-2 mt-3" onClick={handleRegresar}>
           Regresar
         </button>

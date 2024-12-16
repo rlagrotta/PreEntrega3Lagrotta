@@ -97,3 +97,95 @@ a.nav-link {
 h1 {
   text-align: center;
 }
+
+/*Checkout*/ 
+
+.checkout-container {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
+
+.checkout-title {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.cart-summary {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cart-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cart-item {
+  border-bottom: 1px solid #ddd;
+  padding: 0.5rem 0;
+}
+
+.cart-total {
+  text-align: right;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.input-error {
+  border-color: #e63946;
+}
+
+.error-text {
+  color: #e63946;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.submit-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.order-confirmation {
+  text-align: center;
+  padding: 2rem;
+  background: #eafaf1;
+  border: 1px solid #d4edda;
+  border-radius: 8px;
+  color: #155724;
+}
+
+.order-id {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #155724;
+}

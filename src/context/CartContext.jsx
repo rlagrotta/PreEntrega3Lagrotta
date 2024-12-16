@@ -38,7 +38,7 @@ export const CartProvider = ({ children }) => {
     };
 
     const cartTotal = () => {
-        return cart.reduce((acc, prod) => acc + (prod.price || 0) * (prod.qty || 0), 0);
+        return parseFloat(cart.reduce((acc, prod) => acc + (prod.price || 0) * (prod.qty || 0), 0).toFixed(2));
     };
 
     const cartQty = () => {
